@@ -14,9 +14,7 @@ const Router = ({data, isSideBarVisible}) => {
     { path: "/parametre/:id", element: <ParametreView /> },
     { path: "shorts", element: <Shorts /> },
     { path: "abonelikler", element: <Abonelikler /> },
-    { path: "videoizle", element: <VideoPage /> },
-
-
+    { path: "videoizle", element: <VideoPage data={data}/> },
   ]);
   return routes;
 };

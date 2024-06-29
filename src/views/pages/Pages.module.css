@@ -1,0 +1,29 @@
+.videoPage{
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+.videoPageLeft{
+    width: 70%;
+    margin: 0 0 0 24px;
+    padding: 24px 24px 0 0;
+}
+.videoPageRight{
+    width: 30%;
+    margin: 0 0 0 24px;
+    padding: 24px 24px 0 0;
+}
+.image{
+    border-radius: 15px;
+    width: 100%;
+}
+.icon{
+    width: 5%;
+}
+.title{
+    display: flex;
+ 
+    align-items: center;
+}

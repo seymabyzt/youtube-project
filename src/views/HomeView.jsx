@@ -8,6 +8,7 @@ const HomeView = ({data, isSideBarVisible}) => {
   return (
     <GridArea isSideBarVisible={isSideBarVisible} >
       {data?.map((data) => (
+        
         <VideoCard key={data.id}>
           <TopCard>
             <ChannelVideoImg src={data.snippet.thumbnails.high.url} />
