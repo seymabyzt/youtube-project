@@ -6,15 +6,15 @@ import userRouter from "./userRouter";
 import ParametreView from "../views/pages/ParametreView";
 import VideoPage from "../views/pages/VideoPage";
 
-const Router = ({data, isSideBarVisible}) => {
+const Router = ({data, isSideBarVisible, sidebarDisplay}) => {
   const routes = useRoutes([
-    { path: "/", element: <HomeView isSideBarVisible={isSideBarVisible} data={data} /> },
+    { path: "/", element: <HomeView isSideBarVisible={isSideBarVisible} data={data} sidebarDisplay={sidebarDisplay} /> },
 
     userRouter,
     { path: "/parametre/:id", element: <ParametreView /> },
     { path: "shorts", element: <Shorts /> },
     { path: "abonelikler", element: <Abonelikler /> },
-    { path: "videoizle", element: <VideoPage data={data}/> },
+    { path: "videoizle/:id", element: <VideoPage sidebarDisplay={sidebarDisplay} data={data}/> },
   ]);
   return routes;
 };

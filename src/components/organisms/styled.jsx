@@ -70,16 +70,21 @@ export const ListStyleLi = styled.li`
   }
 `;
 export const StyleLinkBottom = styled.a`
-   padding: 0.5rem; 
-   border-radius: 10px; 
-   font-size: 0.9rem;
-   font-weight: 550;
-   color: var(--primary-text-color); 
-   background-color: var(--foreground-color); 
-   margin: 7px; 
-   &:hover { 
-      background-color: var(--toggle-bg)
-   }`;
+    padding: 0.5rem; 
+    border-radius: 10px; 
+    font-size: 0.9rem;
+    font-weight: 550;
+    color: var(--primary-text-color); 
+    background-color: var(--foreground-color); 
+    margin: 7px 7px 7px 0; 
+    &:hover { 
+      background-color: var(--toggle-bg)  
+   }
+    &:first-child {
+      color: var(--background-color); 
+      background-color: var(--primary-text-color); 
+   }
+      `;
 
 export const NavbarBottomFlex = styled.div`
     display: flex;

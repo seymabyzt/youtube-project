@@ -6,7 +6,6 @@ import styles from "./SideBar.module.css";
 const SideBar = () => {
   return (
     <>
-   
       <div className={`${styles.SideTop}`}>
         <ul className={`${styles.SideUl}`}>
           <li className={`${styles.SideLi} ${styles.active}`}>

@@ -9,11 +9,13 @@ import styled from 'styled-components';
 
 export const ContainSideBar = styled.div`
   width: ${props => (props.isSideBarVisible ? '4%' : '18%')};
+  display: ${props => (props.sidebarDisplay ? 'none' : 'block')};
   padding: 12px;
   background-color: var(--background-color);
   color: var(--primary-text-color);
   overflow: scroll;
   height: 100vh;
+  scrollbar-gutter: none;
   @media (max-width: 480px) {
     display: none; 
   }
@@ -38,6 +40,8 @@ function App() {
   const { theme } = useTheme();
   const [data, setData] = useState([]);
   const [isSideBarVisible, setSideBarVisible] = useState(false);
+  const [sidebarDisplay] = useState(true);
+
 
   const handleToggleSideBar = () => {
     setSideBarVisible(!isSideBarVisible);
@@ -60,7 +64,6 @@ function App() {
 
   useEffect(() => {
     fetchVideos();
-    
   }, []);
 
   return (
@@ -70,12 +73,12 @@ function App() {
         <ContainSideBar isSideBarVisible={isSideBarVisible} className={`ContainSideBar`}>
           <SideBar />
         </ContainSideBar>
-        <RoutePage isSideBarVisible={isSideBarVisible}>
+        <RoutePage>
           <StickyNavbar>
             <BottomNavbar />
           </StickyNavbar>
           <RouterDiv>
-            <Router isSideBarVisible={isSideBarVisible} data={data} />
+            <Router  sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data} />
           </RouterDiv>
         </RoutePage>
       </HomeFlex>

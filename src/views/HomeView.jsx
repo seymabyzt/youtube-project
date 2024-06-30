@@ -1,9 +1,17 @@
+
+import { useState } from 'react';
 import { GridArea, TopCard, TopBottom, VideoCard, ChannelPhoto, ChannelName, VideoName, ViewDate, TextCard, DetailIcon, MaterialIcons, MaterialsIcons, ChannelVideoImg } from './Styledviews';
 
+
+
 const HomeView = ({data, isSideBarVisible}) => {
+  const [sidebarDisplay, setSidebarDisplay] = useState(false);
+
   if (!data || data.length === 0) {
     return <div>Loading...</div>;
   }
+
+
 
   return (
     <GridArea isSideBarVisible={isSideBarVisible} >
