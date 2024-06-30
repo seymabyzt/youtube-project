@@ -1,57 +1,72 @@
-.videoPage{
+.videoPage {
     display: flex;
     min-width: 100vw;
     min-height: 100vh;
     background-color: var(--background-color);
 }
 
-.videoPageLeft{
+.videoPageLeft {
     width: 70%;
     margin: 0 0 0 24px;
     padding: 24px 0 0 0;
 }
-.videoPageRight{
+
+.videoPageLeft iframe {
+    border-radius: 1rem;
+}
+
+.videoPageRight {
     width: 30%;
     margin: 0 0 0 24px;
     padding: 24px 24px 0 0;
 }
-.image{
+
+.image {
     border-radius: 15px;
     width: 100%;
 }
-.icon{
+
+.icon {
     width: 4%;
 }
-.icon img{
+
+.icon img {
     width: 100%;
 }
-.title{
+
+.title {
     display: flex;
     gap: 10px;
     align-items: center;
     padding: 24px 0;
     border-top: 1px solid var(--toggle-bg);
 }
-.videoSmall{
+
+.videoSmall {
     display: flex;
 }
 
-.videoTitle{
+.videoTitle {
     font-size: 16px;
-}   
-.videoSmallLeft img{
+}
+
+.videoSmallLeft img {
     border-radius: 10px;
 }
-.videoSmallRight{
+
+.videoSmallRight {
     font-size: 10px;
 }
-.videoSmallTitle{
+
+.videoSmallTitle {
     font-size: 10px;
 }
-.viewCount{
+
+.viewCount {
     display: flex;
 }
-.shorts{
+
+.shorts {
     display: flex;
     flex-direction: row;
     overflow: hidden;
@@ -60,59 +75,170 @@
     border-bottom: 1px solid var(--toggle-bg);
     position: relative;
 }
-.shorts .arrowRight{
+
+.shorts .arrowRight {
     position: absolute;
     left: 0;
     top: 50%;
 }
-.shortsContent{
+
+.shortsContent {
     width: 131px;
 
 }
-.shortsPhoto{
+
+.shortsPhoto {
     width: 131px;
     height: 238px;
 
 }
-.shortsPhoto img{
+
+.shortsPhoto img {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     object-fit: cover;
 }
-.shortsSubTitle{
+
+.shortsSubTitle {
     display: flex;
     margin: 5px 0;
-    gap: 15px;  
-}
-.shortsSubTitleLeft {
-    width: 80%;
-    overflow: hidden;   
-    text-overflow: ellipsis; 
-}
-.videoSupTitleLeft img{
-    border-radius: 50%;
-    width: 40px;
-    margin: 0px 10px 10px 0;
+    gap: 15px;
 }
 
-.shortsSubTitleLeft h5{
+.shortsSubTitleLeft {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoSupTitleLeft img {
+    border-radius: 50%;
+}
+
+.shortsSubTitleLeft h5 {
     text-transform: capitalize;
     height: 2rem;
-    
+
 }
-.shortsSubTitleRight{
+
+.shortsSubTitleRight {
     width: 5%;
 }
+
 .shortsSubTitleRight span {
     font-size: 20px;
 }
-.viewCort{
+
+.viewCort {
     font-size: 0.8rem;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
-.videoSupTitleLeft{
+
+.VideoPagesTitle h3 {
+    margin: 1rem 0
+}
+
+.videoSupTitle {
     display: flex;
+    height: 2rem;
+    justify-content: space-between;
+}
+
+.videoSupTitleLeft {
+    display: flex;
+}
+
+.videoSupTitleRight {
+    display: flex;
+    justify-content: space-between;
+}
+
+.likeButton {
+    display: flex;
+    align-items: center;
+}
+
+.likeButton span {
+    font-weight: 200;
+}
+
+.likeButton .likeButtonContent {
+    border-radius: 1rem 0 0 1rem;
+    color: var(--sometext-color);
+    background-color: var(--foreground-color);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 15px;
+    &:hover {
+        background-color: var(--toggle-bg);
+        color: var(--sometext-color);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 40;
+        right: 0;
+        height: 60%;
+        width: 1px;
+        background-color: rgb(76, 74, 74);
+    }
+}
+
+.videoSupTitleLeft .Subscribe {
+    background-color: var(--primary-text-color);
+    border-radius: 1rem;
+    color: var(--foreground-color);
+    margin: 0 1.5rem;
+    padding: 0 10px;
+}
+
+.likeButton .dislikeButtonContent {
+    border-radius: 0 1rem 1rem 0;
+    background-color: var(--foreground-color);
+    color: var(--sometext-color);
+    display: flex;
+    align-items: center; 
+    padding-right: 15px;   
+    &:hover {
+        background-color: var(--toggle-bg);
+        color: var(--sometext-color);
+    }
+}
+
+.videoSupTitleRight .replyShare {
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 0 0.8rem;
+    background-color: var(--foreground-color);
+    color: var(--sometext-color);
+    padding: 7px;
+    &:hover {
+        background-color: var(--toggle-bg);
+        color: var(--sometext-color);
+    }
+}
+.videoSupTitleRight .moreHoriz {
+    border-radius: 1rem;
+    background-color: var(--foreground-color);
+    color: var(--sometext-color);
+    padding: 0 10px;
+    &:hover {
+        background-color: var(--toggle-bg);
+        color: var(--sometext-color);
+    }
+}
+
+.replyShare span {
+    transform: scaleX(-1);
+    
+}
+
+.channelName {
+    margin: 0 0.7rem;
 }

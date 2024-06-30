@@ -13,9 +13,11 @@ export const ContainSideBar = styled.div`
   padding: 12px;
   background-color: var(--background-color);
   color: var(--primary-text-color);
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
   height: 100vh;
-  scrollbar-gutter: none;
+  scrollbar-width: thin; 
   @media (max-width: 480px) {
     display: none; 
   }
@@ -73,12 +75,12 @@ function App() {
         <ContainSideBar isSideBarVisible={isSideBarVisible} className={`ContainSideBar`}>
           <SideBar />
         </ContainSideBar>
-        <RoutePage>
+        <RoutePage isSideBarVisible={isSideBarVisible}> 
           <StickyNavbar>
             <BottomNavbar />
           </StickyNavbar>
           <RouterDiv>
-            <Router  sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data} />
+            <Router sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data} />
           </RouterDiv>
         </RoutePage>
       </HomeFlex>

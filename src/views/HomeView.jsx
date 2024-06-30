@@ -19,7 +19,8 @@ const HomeView = ({data, isSideBarVisible}) => {
         
         <VideoCard key={data.id}>
           <TopCard>
-            <ChannelVideoImg src={data.snippet.thumbnails.high.url} />
+          <a href={`/videoizle/${data.id}`}>
+            <ChannelVideoImg src={data.snippet.thumbnails.high.url} /></a>
           </TopCard>
           <TopBottom>
             <div>
