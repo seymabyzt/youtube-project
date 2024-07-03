@@ -16,7 +16,7 @@ export const ContainSideBar = styled.div`
   overflow: hidden;
   overflow-y: auto;
   scrollbar-color: transparent transparent;
-  height: 100vh;
+  min-height: 100vh;
   scrollbar-width: thin; 
   @media (max-width: 480px) {
     display: none; 
@@ -43,15 +43,16 @@ function App() {
   const [data, setData] = useState([]);
   const [isSideBarVisible, setSideBarVisible] = useState(false);
   const [sidebarDisplay] = useState(true);
+  const [search, setSearch] = useState('');
 
 
   const handleToggleSideBar = () => {
     setSideBarVisible(!isSideBarVisible);
   };
 
-  const fetchVideos = async () => {
+  const fetchVideos = async (searchQuery) => {
     try {
-      const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=TR&maxResults=10&key=AIzaSyBblKbo6aLyI97fb167rnvHmlV7NfPwJMo`);
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=10&key=AIzaSyBKWhSdAqxErcRUElqw71uQlyMrZmGrV-E`);
       if (!response.ok) {
         throw new Error("404 not found");
       }
@@ -65,12 +66,12 @@ function App() {
   
 
   useEffect(() => {
-    fetchVideos();
-  }, []);
+    fetchVideos(search);
+  }, [search]);
 
   return (
     <div className={`app`} data-theme={theme}>
-      <Navbar onToggleSideBar={handleToggleSideBar} />
+      <Navbar onToggleSideBar={handleToggleSideBar}  setSearch={setSearch}/>
       <HomeFlex>
         <ContainSideBar isSideBarVisible={isSideBarVisible} className={`ContainSideBar`}>
           <SideBar />

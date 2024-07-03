@@ -3,13 +3,16 @@ import Button from "../../components/atoms/Buttons";
 import BottomNavbar from "../../components/organisms/BottomNavbar";
 import styles from "./Pages.module.css";
 import { useParams } from 'react-router-dom';
+import Comment from '../../components/molecules/Comment';
 
 const VideoPage = ({ data }) => {
   const { id } = useParams();
   const [incommingData, setIncommingData] = useState(null);
 
+
+
   useEffect(() => {
-    const videoData = data.find((element) => element.id === id);
+    const videoData = data.find((e) => e.id.videoId === id);
     setIncommingData(videoData);
   }, [id, data]);
 
@@ -64,7 +67,12 @@ const VideoPage = ({ data }) => {
                 </Button>
               </div>
             </div>
-            <div>{incommingData.snippet.description}</div>
+            <div className={styles.descriptionArea}>
+            <h5>{incommingData.snippet.description}</h5>
+            </div>
+           <div>
+            <Comment ></Comment>
+           </div>
           </div>
           <div className={styles.videoPageRight}>
             <div>
@@ -80,8 +88,8 @@ const VideoPage = ({ data }) => {
               <div className={styles.arrowRight}>
                 <span className="arrow_forward"></span>
               </div>
-              {data?.map((video) => (
-                <div className={styles.shortsContent} key={video.id}>
+              {data.map((video) => (
+                <div className={styles.shortsContent} key={video.id.videoId}>
                   <div className={styles.shortsPhoto}>
                     <img src={video.snippet.thumbnails.medium.url} alt="" />
                   </div>

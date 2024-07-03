@@ -242,3 +242,9 @@
 .channelName {
     margin: 0 0.7rem;
 }
+.descriptionArea{
+    height: 4rem;
+    margin: 1rem 0;
+    border-radius: 15px;
+    background-color: var(--foreground-color);
+}

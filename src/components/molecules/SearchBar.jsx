@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Middle, SearchBox, StyledInput, MaterialIcons, SearchButton } from './Styled';
 import { Label } from '../atoms/Label';
 
-const SearchBar = () => {
+const SearchBar = ({ setSearch }) => {
   const [inputValue, setInputValue] = useState("");
   const [isIconVisible, setIsIconVisible] = useState(false);
-
+ 
   const handleFocus = () => {
     setIsIconVisible(true);
   };
@@ -13,11 +13,12 @@ const SearchBar = () => {
   const handleBlur = () => {
     setIsIconVisible(false);
   };
-
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
-  
+  const handleSearch = () => {
+    setSearch(inputValue);
+  };
   return (
     <Middle>
       <SearchBox>
@@ -35,7 +36,7 @@ const SearchBar = () => {
           onBlur={handleBlur} 
         />
       </SearchBox>
-      <SearchButton>
+      <SearchButton onClick={handleSearch}>
         <MaterialIcons className="material-symbols-outlined">
           search
         </MaterialIcons>

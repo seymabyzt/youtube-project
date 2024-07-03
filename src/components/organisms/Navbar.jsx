@@ -4,17 +4,17 @@ import SearchBar from "../molecules/SearchBar";
 import { NavbarContainer, DivLogo, ImgLogo, NavbarLeft, NavbarMiddle, NavbarRight, MaterialIcons, HomeIcons } from "./styled";
 import Button from "../atoms/Buttons";
 
-const Navbar = ({ onToggleSideBar }) => {
+const Navbar = ({ onToggleSideBar, setSearch}) => {
   const { theme, setTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState("./assets/1.png");
+  const [logoSrc, setLogoSrc] = useState('./src/assets/1.png');
 
   useEffect(() => {
-    setLogoSrc(theme === 'dark' ? 'src/assets/2.png' : 'src/assets/1.png');
+    setLogoSrc(theme === 'dark' ? './src/assets/2.png' : './src/assets/1.png');
   }, [theme]);
 
   return (
     <NavbarContainer>
-      <NavbarLeft>
+      <NavbarLeft>  
         <Button onClick={onToggleSideBar}>
           <HomeIcons className="material-symbols-outlined">menu</HomeIcons>
         </Button>
@@ -23,7 +23,7 @@ const Navbar = ({ onToggleSideBar }) => {
         </DivLogo>
       </NavbarLeft>
       <NavbarMiddle>
-        <SearchBar />
+        <SearchBar setSearch={setSearch} />
       </NavbarMiddle>
       <NavbarRight>
         <Button onClick={() => setTheme(theme => theme === 'dark' ? 'light' : 'dark')}>Dark Mode</Button>

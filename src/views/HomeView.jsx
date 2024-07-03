@@ -1,8 +1,6 @@
-
 import { useState } from 'react';
 import { GridArea, TopCard, TopBottom, VideoCard, ChannelPhoto, ChannelName, VideoName, ViewDate, TextCard, DetailIcon, MaterialIcons, MaterialsIcons, ChannelVideoImg } from './Styledviews';
-
-
+import { Link } from 'react-router-dom';
 
 const HomeView = ({data, isSideBarVisible}) => {
   const [sidebarDisplay, setSidebarDisplay] = useState(false);
@@ -11,24 +9,22 @@ const HomeView = ({data, isSideBarVisible}) => {
     return <div>Loading...</div>;
   }
 
-
-
   return (
-    <GridArea isSideBarVisible={isSideBarVisible} >
-      {data?.map((data) => (
-        
-        <VideoCard key={data.id}>
+    <GridArea isSideBarVisible={isSideBarVisible}>
+      {data.map((video) => (
+        <VideoCard key={video.id.videoId}>
           <TopCard>
-          <a href={`/videoizle/${data.id}`}>
-            <ChannelVideoImg src={data.snippet.thumbnails.high.url} /></a>
+            <Link to={`/videoizle/${video.id.videoId}`}>
+              <ChannelVideoImg src={video.snippet.thumbnails.high.url} />
+            </Link>
           </TopCard>
           <TopBottom>
             <div>
               <ChannelPhoto src={'https://media.licdn.com/dms/image/D4D03AQF61wCdYdHLYg/profile-displayphoto-shrink_400_400/0/1710253774492?e=1724284800&v=beta&t=GNatOFASMuq5FGIYhJ3tUONtddPt3OikWoea7NkWYr0'} alt='Channel' />
             </div>
             <div>
-              <VideoName>{data.snippet.title}</VideoName>
-              <ChannelName>{data.snippet.channelTitle}</ChannelName>
+              <VideoName>{video.snippet.title}</VideoName>
+              <ChannelName>{video.snippet.channelTitle}</ChannelName>
               <ViewDate>
                 <TextCard>90 görüntüleme</TextCard>
                 <MaterialIcons className="material-icons">fiber_manual_record</MaterialIcons>

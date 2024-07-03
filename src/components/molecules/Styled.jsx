@@ -44,6 +44,16 @@ export const SearchButton = styled.button`
     color: var(--secondary-text-color);
   }
 `;
+export const CommentAuthor = styled.div`
+  background-color: var(--foreground-color);
+`;
+export const CommentMiddle = styled.div`
+  background-color: var(--foreground-color);
+`;
+export const CommentRight = styled.div`
+  background-color: var(--foreground-color);
+`
+
 
 
 
