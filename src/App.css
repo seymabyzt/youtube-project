@@ -38,4 +38,12 @@ a{
   font-weight: 200;
   font-style: normal;
 }
-
+.app{
+  height: 100vh;
+  scrollbar-width: thin; 
+  scroll-behavior: smooth;
+  background-color: var(--background-color);
+  scrollbar-color: transparent transparent;
+  overflow: scroll;
+  overflow-y: auto;
+}

@@ -21,10 +21,8 @@ const VideoPage = ({ data }) => {
       {incommingData && (
         <div className={styles.videoPage}>
           <div className={styles.videoPageLeft}>
-            <div>
+            <div className={styles.videoContent}>
               <iframe
-                width="951"
-                height="535"
                 src={`https://www.youtube.com/embed/${id}`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

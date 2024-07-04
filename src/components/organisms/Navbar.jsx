@@ -3,10 +3,12 @@ import { useTheme } from "../../context/ThemeContext";
 import SearchBar from "../molecules/SearchBar";
 import { NavbarContainer, DivLogo, ImgLogo, NavbarLeft, NavbarMiddle, NavbarRight, MaterialIcons, HomeIcons } from "./styled";
 import Button from "../atoms/Buttons";
+import '../../assets/1.png';
+import '../../assets/2.png'
 
 const Navbar = ({ onToggleSideBar, setSearch}) => {
   const { theme, setTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState('./src/assets/1.png');
+  const [logoSrc, setLogoSrc] = useState('../../assets/1.png');
 
   useEffect(() => {
     setLogoSrc(theme === 'dark' ? './src/assets/2.png' : './src/assets/1.png');

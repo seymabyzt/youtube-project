@@ -11,12 +11,19 @@ export const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   z-index: 1000;
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    height: auto;
+  }
 `;
 
 export const DivLogo = styled.div`
   width: 120px;
   height: 56px;
   padding: 18px 14px 18px 16px;
+  @media (max-width:480px){
+    width: 80px;
+  }
 `;
 
 export const ImgLogo = styled.img`
@@ -29,11 +36,10 @@ export const NavbarLeft = styled.div`
     align-items: center;
 
 `;
-
 export const NavbarMiddle = styled.div`
   width: 100%;
-  @media (max-width: 480px) {
-    display: none;
+  @media (max-width:480px){
+  width: auto;
   }
 `;
 export const NavbarRight = styled.div`
@@ -56,8 +62,8 @@ export const MaterialIcons = styled.span`
   font-weight: 100;
 `;
 export const ListStyle = styled.ul`
-    list-style-type: none;
-    display: flex;
+  list-style-type: none;
+  display: flex;
 `;
 export const ListStyleLi = styled.li`
   padding: 5px;
@@ -70,39 +76,36 @@ export const ListStyleLi = styled.li`
   }
 `;
 export const StyleLinkBottom = styled.a`
-    padding: 0.5rem; 
-    border-radius: 10px; 
-    font-size: 0.9rem;
-    font-weight: 550;
-    color: var(--primary-text-color); 
-    background-color: var(--foreground-color); 
-    margin: 7px 7px 7px 0; 
-    &:hover { 
-      background-color: var(--toggle-bg)  
-   }
-    &:first-child {
-      color: var(--background-color); 
-      background-color: var(--primary-text-color); 
-   }
-      `;
-
-export const NavbarBottomFlex = styled.div`
-    display: flex;
-    align-items: center;
-    background-color: var(--background-color);
-    overflow-x: auto; 
-    white-space: nowrap; 
-    height: 56px;
-    padding-right: 16px;
-    -ms-overflow-style: none;  /* IE ve Edge */
-    scrollbar-width: none; 
-    &::-webkit-scrollbar {
-      display: none; 
-}
-    @media (max-width: 480px) {
-      display: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--primary-text-color);
+  background-color: var(--foreground-color);
+  margin: 7px 7px 7px 0;
+  &:hover {
+    background-color: var(--toggle-bg);
+  }
+  &:first-child {
+    color: var(--background-color);
+    background-color: var(--primary-text-color);
   }
 `;
 
-
-
+export const NavbarBottomFlex = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color);
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 56px;
+  padding-right: 16px;
+  -ms-overflow-style: none; /* IE ve Edge */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;

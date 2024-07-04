@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ShortStyle = styled.div`
   background-color: var(--background-color);
@@ -7,43 +7,48 @@ export const ShortStyle = styled.div`
 export const GridArea = styled.div`
   background-color: var(--background-color);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(${props => props.isSideBarVisible ? '24%' : '30%'}, 1fr));
-  flex-wrap: wrap;
-  justify-content: start;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(${(props) => (props.isSideBarVisible ? "24%" : "30%")}, 1fr)
+  );
   overflow: scroll;
   height: 100vh;
-  padding-right: 10px
-    @media (max-width: 480px) {
-       justify-content: center;
+  padding-right: 10px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, minmax(100%, 1fr));
   }
 `;
+
 export const TopCard = styled.div`
   width: 100%;
   border-radius: 10px;
   overflow-clip-margin: content-box;
   overflow: clip;
-  height: ${props => props.isSideBarVisible ? '180px' : '210px'};
+  height: ${(props) => (props.isSideBarVisible ? "180px" : "210px")};
   margin-bottom: 10px;
 `;
 export const TopBottom = styled.div`
-    display: flex;
-    line-height: 1.3rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-  
+  display: flex;
+  line-height: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 `;
 export const VideoCard = styled.div`
   height: 318px;
   margin: 10px;
   display: flex;
   flex-direction: column;
-  
+  @media (max-width: 480px) {
+    flex-basis: 1;
+    );
+  }
 `;
 export const ChannelPhoto = styled.img`
   border-radius: 50%;
   width: 40px;
-  margin: 0px 10px 10px 0; 
+  margin: 0px 10px 10px 0;
 `;
 export const ViewDate = styled.div`
   display: flex;
@@ -81,5 +86,4 @@ export const ChannelVideoImg = styled.img`
   object-fit: cover;
   height: 100%;
   visibility: inherit;
-  
 `;
