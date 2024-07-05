@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import SearchBar from "../molecules/SearchBar";
 import { NavbarContainer, DivLogo, ImgLogo, NavbarLeft, NavbarMiddle, NavbarRight, MaterialIcons, HomeIcons } from "./styled";
 import Button from "../atoms/Buttons";
-import '../../assets/1.png';
-import '../../assets/2.png'
+ 
 
 const Navbar = ({ onToggleSideBar, setSearch}) => {
   const { theme, setTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState('../../assets/1.png');
-
-  useEffect(() => {
-    setLogoSrc(theme === 'dark' ? './src/assets/2.png' : './src/assets/1.png');
-  }, [theme]);
+  const logosrc = (theme === 'dark' ? '/assets/2.png' : '/assets/1.png')
 
   return (
     <NavbarContainer>
@@ -21,7 +15,7 @@ const Navbar = ({ onToggleSideBar, setSearch}) => {
           <HomeIcons className="material-symbols-outlined">menu</HomeIcons>
         </Button>
         <DivLogo>
-          <ImgLogo src={logoSrc} alt="Logo" />
+          <ImgLogo src={logosrc} alt="Logo"/>
         </DivLogo>
       </NavbarLeft>
       <NavbarMiddle>

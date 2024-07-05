@@ -19,7 +19,7 @@ export const ContainSideBar = styled.div`
   scrollbar-color: transparent transparent;
   height: 100vh;
   scrollbar-width: thin; 
-
+ 
 `;
 
 export const RoutePage = styled.div`
@@ -32,9 +32,9 @@ export const StickyNavbar = styled.div`
   position: sticky;
   z-index: 1000;
 `;
+
 export const HomeFlex = styled.div`
   display: flex;
- 
 `;
 
 
@@ -79,7 +79,6 @@ function App() {
         <RoutePage isSideBarVisible={isSideBarVisible}>
           <StickyNavbar><BottomNavbar></BottomNavbar></StickyNavbar>
           <Router sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data} />
-
         </RoutePage>
       </HomeFlex>
     </div>
