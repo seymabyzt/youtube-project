@@ -9,7 +9,6 @@ const SearchBar = ({ setSearch }) => {
   const handleFocus = () => {
     setIsIconVisible(true);
   };
-
   const handleBlur = () => {
     setIsIconVisible(false);
   };
@@ -18,6 +17,7 @@ const SearchBar = ({ setSearch }) => {
   };
   const handleSearch = () => {
     setSearch(inputValue);
+    setInputValue("");
   };
   return (
     <Middle>
@@ -34,6 +34,12 @@ const SearchBar = ({ setSearch }) => {
           onChange={handleChange} 
           onFocus={handleFocus} 
           onBlur={handleBlur} 
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault(); 
+              handleSearch();
+            }
+          }}
         />
       </SearchBox>
       <SearchButton onClick={handleSearch}>

@@ -12,7 +12,7 @@ const Comment = () => {
   const fetchComments = async () => {
     try {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${id}&maxResults=10&key=AIzaSyClZoaxLmWpthTUydYpbpuEBGVMP1KE_yo`
+        `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${id}&maxResults=10&key=${API_KEY}`
       );
       if (!response.ok) {
         throw new Error('404 not found');

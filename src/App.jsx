@@ -5,7 +5,8 @@ import SideBar from './components/organisms/SideBar';
 import { useTheme } from './context/ThemeContext';
 import Router from './routes/Router';
 import styled from 'styled-components';
-import BottomNavbar from './components/organisms/BottomNavbar';
+import LoadingOverlay from './components/organisms/loadingOverlay';
+import { useSelector } from 'react-redux';
 
 export const ContainSideBar = styled.div`
   width: ${props => (props.isSideBarVisible ? '4%' : '18%')};
@@ -44,41 +45,45 @@ function App() {
   const [isSideBarVisible, setSideBarVisible] = useState(false);
   const [sidebarDisplay] = useState(true);
   const [search, setSearch] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-
+  let bottomSearch = useSelector((state) => state.search.query);
+    
   const handleToggleSideBar = () => {
     setSideBarVisible(!isSideBarVisible);
   };
 
-  const fetchVideos = async (searchQuery) => {
-    try {
-      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=10&key=AIzaSyClZoaxLmWpthTUydYpbpuEBGVMP1KE_yo`);
-      if (!response.ok) {
-        throw new Error("404 not found");
-      }
-      const result = await response.json();
-      setData(result.items);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+const fetchVideos = async (searchQuery) => {
+  try {
+    setIsLoading(true); 
+    const response = await fetch(`http://localhost:3001/api/videos?q=${searchQuery}`);
+    if (!response.ok) {
+      throw new Error("404 not found");
     }
-
-  };
-
+    const mergedData = await response.json();
+    setData(mergedData);
+    console.log(mergedData)
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   useEffect(() => {
     fetchVideos(search);
   }, [search]);
-
+console.log(data)
   return (
     <div className={`app`} data-theme={theme}>
+      <LoadingOverlay isLoading={isLoading} />
       <Navbar onToggleSideBar={handleToggleSideBar} setSearch={setSearch} />
       <HomeFlex>
         <ContainSideBar isSideBarVisible={isSideBarVisible} className={`ContainSideBar`}>
           <SideBar />
         </ContainSideBar>
         <RoutePage isSideBarVisible={isSideBarVisible}>
-          <StickyNavbar><BottomNavbar></BottomNavbar></StickyNavbar>
-          <Router sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data} />
+          <Router sidebarDisplay={sidebarDisplay} isSideBarVisible={isSideBarVisible} data={data}  setSearch={setSearch}/>
         </RoutePage>
       </HomeFlex>
     </div>

@@ -6,9 +6,9 @@ import userRouter from "./userRouter";
 import ParametreView from "../views/pages/ParametreView";
 import VideoPage from "../views/pages/VideoPage";
 
-const Router = ({data, isSideBarVisible, sidebarDisplay}) => {
+const Router = ({data, isSideBarVisible, sidebarDisplay, setSearch}) => {
   const routes = useRoutes([
-    { path: "/", element: <HomeView isSideBarVisible={isSideBarVisible} data={data} sidebarDisplay={sidebarDisplay} /> },
+    { path: "/", element: <HomeView isSideBarVisible={isSideBarVisible} data={data} setSearch={setSearch} sidebarDisplay={sidebarDisplay} /> },
 
     userRouter,
     { path: "/parametre/:id", element: <ParametreView /> },

@@ -40,6 +40,7 @@ export const MaterialIcons = styled.span`
   color: var(--primary-text-color);
   font-weight: 100;
   padding: 0 10px 0 10px;
+  cursor: pointer
 `;
 export const SearchButton = styled.button`
   border: none;

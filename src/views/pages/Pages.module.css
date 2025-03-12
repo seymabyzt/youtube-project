@@ -5,7 +5,7 @@
 }
 .videoContent{
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     max-width: 100%;
@@ -83,14 +83,12 @@
     display: flex;
 }
 
-.shorts {
+.sameVideos {
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
+    flex-direction: column;
     gap: 5px;
     padding-bottom: 24px;
     border-bottom: 1px solid var(--toggle-bg);
-    position: relative;
 }
 
 .shorts .arrowRight {
@@ -99,34 +97,35 @@
     top: 50%;
 }
 
-.shortsContent {
-    width: 131px;
-
+.sameVideosContent {
+    display: flex;
+    flex-direction: row;
 }
 
-.shortsPhoto {
-    width: 131px;
-    height: 238px;
-
+.sameVideosPhoto {
+    width: auto;
+    margin-right: 10px;
 }
 
-.shortsPhoto img {
-    width: 100%;
-    height: 100%;
+.sameVideosPhoto img {
     border-radius: 10px;
     object-fit: cover;
 }
 
-.shortsSubTitle {
+.sameVideosSubTitle {
     display: flex;
+    justify-content: space-between;
     margin: 5px 0;
     gap: 15px;
+    width: 250px;
 }
 
-.shortsSubTitleLeft {
+.sameVideosSubTitleLeft {
     width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
+    gap: 2;
+    color: var(--primary-text-color);
 }
 
 .videoSupTitleLeft img {
@@ -139,8 +138,9 @@
 
 }
 
-.shortsSubTitleRight {
+.sameVideosSubTitleRight {
     width: 5%;
+    color: var(--primary-text-color);
 }
 
 .shortsSubTitleRight span {
@@ -156,7 +156,8 @@
 }
 
 .VideoPagesTitle h3 {
-    margin: 1rem 0
+    margin: 1rem 0;
+    color: var(--primary-text-color);
 }
 
 .videoSupTitle {
@@ -253,11 +254,11 @@
 
 .replyShare span {
     transform: scaleX(-1);
-    
 }
 
 .channelName {
     margin: 0 0.7rem;
+    color: var(--primary-text-color);
 }
 .descriptionArea{
     min-height: 4rem;
@@ -266,6 +267,7 @@
     border-radius: 15px;
     background-color: var(--foreground-color);
     overflow: hidden;
+    color: var(--primary-text-color);
 }
 @media screen and (max-width: 480px){
     .VideoPagesTitle h3 {
